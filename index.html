@@ -24,7 +24,6 @@ h1,h2,h3,h4{font-family:'Playfair Display',serif;}
 .review-card{transition:all 0.3s ease;}
 .review-card:hover{transform:translateY(-4px);box-shadow:0 12px 24px rgba(0,0,0,0.08);}
 </style>
-<base target="_blank">
 </head>
 <body class="bg-white text-gray-800">
 
@@ -45,6 +44,7 @@ h1,h2,h3,h4{font-family:'Playfair Display',serif;}
       <a href="#about" class="hover:text-red-600 transition">About</a>
       <a href="#booking" class="hover:text-red-600 transition">Book</a>
       <a href="#contact" class="hover:text-red-600 transition">Contact</a>
+      <a href="#payment" class="hover:text-red-600 transition">Payment</a>
     </div>
     <div class="flex items-center gap-3">
       <a href="https://m.me/MiraDentalCenter" target="_blank" class="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center text-white hover:scale-110 transition shadow-md" title="Message on Facebook Messenger">
@@ -352,13 +352,13 @@ h1,h2,h3,h4{font-family:'Playfair Display',serif;}
   </div>
 </section>
 
-<section id="about" class="py-24 text-white relative overflow-hidden" style="background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);">
+<section id="about" class="py-24 text-white relative overflow-hidden" style="background: #1a1a1a;">
   <div class="absolute inset-0 opacity-5" style="background-image:url('data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
   <div class="relative max-w-7xl mx-auto px-6">
     <div class="grid md:grid-cols-2 gap-12 items-center">
       <div class="order-2 md:order-1">
         <a href="https://www.google.com/maps/search/?api=1&query=Mira+Dental+Center+Maadi+Cairo" target="_blank">
-          <img src="https://essamsherif16-del.github.io/mira-dental-center/building.jpg" alt="Mira Dental Center Building" class="rounded-3xl shadow-2xl w-full object-cover h-96 hover:scale-105 transition duration-500" style="filter: grayscale(100%);">
+          <img src="https://essamsherif16-del.github.io/mira-dental-center/building.jpg" alt="Mira Dental Center Building" class="rounded-3xl shadow-2xl w-full object-contain hover:scale-105 transition duration-500" style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;">
         </a>
       </div>
       <div class="order-1 md:order-2 space-y-6">
@@ -475,7 +475,9 @@ h1,h2,h3,h4{font-family:'Playfair Display',serif;}
 </section>
 
 <script>
-function sendBooking(e) {
+const API_BASE_URL = "https://REPLACE-WITH-YOUR-RENDER-URL.onrender.com";
+
+async function sendBooking(e) {
   e.preventDefault();
   var name = document.getElementById("patientName").value.trim();
   var phone = document.getElementById("patientPhone").value.trim();
@@ -484,7 +486,34 @@ function sendBooking(e) {
   var service = document.getElementById("serviceNeeded").value;
   var issue = document.getElementById("patientIssue").value.trim();
   var files = document.getElementById("patientFiles").files;
+  var filesNote = files.length > 0 ? files.length + " file(s) selected in the form (not uploaded — ask patient to attach in WhatsApp)" : "";
 
+  var submitBtn = e.target.querySelector('button[type="submit"]');
+  var originalLabel = submitBtn.textContent;
+  submitBtn.disabled = true;
+  submitBtn.textContent = "Sending...";
+
+  // 1) Save to backend + trigger email notification
+  try {
+    await fetch(API_BASE_URL + "/api/bookings", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: name,
+        phone: phone,
+        preferred_date: date,
+        preferred_time: time,
+        service: service,
+        issue: issue,
+        files_note: filesNote
+      })
+    });
+  } catch (err) {
+    // Backend might be asleep (free tier) or unreachable — don't block the booking on this
+    console.warn("Backend save failed, continuing with WhatsApp:", err);
+  }
+
+  // 2) Always open WhatsApp too, so the booking still reaches you even if the backend is down
   var msg = "Hello Mira Dental Center, I would like to book an appointment.\n\n";
   msg += "*Patient Details:*\n";
   msg += "Name: " + name + "\n";
@@ -493,19 +522,23 @@ function sendBooking(e) {
   if (time) msg += "Preferred Time: " + time + "\n";
   if (service) msg += "Service: " + service + "\n";
   msg += "\n*Issue / Symptoms:*\n" + issue;
-  if (files.length > 0) {
-    msg += "\n\n*Attached Files:* " + files.length + " file(s) uploaded. Please check email or request files via WhatsApp.";
-  }
+  if (filesNote) msg += "\n\n*Note:* " + filesNote;
   msg += "\n\nPlease confirm my appointment. Thank you!";
 
   var url = "https://wa.me/201111197399?text=" + encodeURIComponent(msg);
   window.open(url, "_blank");
+
+  submitBtn.disabled = false;
+  submitBtn.textContent = originalLabel;
 }
 
 function openLightbox(el) {
   var img = el.querySelector('img');
   document.getElementById('lightboxImg').src = img.src;
   document.getElementById('lightbox').classList.add('active');
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('active');
 }
 
 function closeLightbox() {
@@ -583,6 +616,49 @@ function closeLightbox() {
   </div>
 </section>
 
+
+<section id="payment" class="py-16 bg-gray-50 border-t border-gray-200">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-10">
+      <span class="text-red-600 font-semibold text-sm uppercase tracking-widest">Payment Options</span>
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-3" style="font-family:'Playfair Display',serif;">Accepted Payment Methods</h2>
+      <div class="w-20 h-1 bg-red-600 mx-auto mt-4 rounded-full"></div>
+      <p class="text-gray-600 mt-4">Flexible payment options for your convenience</p>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+      <div class="bg-white rounded-2xl p-6 text-center border border-gray-100 shadow-sm card-hover">
+        <div class="w-20 h-20 mx-auto mb-3 bg-green-50 rounded-xl flex items-center justify-center">
+          <span class="text-3xl font-bold text-green-600">EGP</span>
+        </div>
+        <h3 class="font-bold text-gray-900">Cash</h3>
+        <p class="text-sm text-gray-500 mt-1">Egyptian Pound</p>
+      </div>
+      <div class="bg-white rounded-2xl p-6 text-center border border-gray-100 shadow-sm card-hover">
+        <div class="flex items-center justify-center gap-2 mb-3">
+          <img src="https://essamsherif16-del.github.io/mira-dental-center/visa.png" alt="Visa" class="h-10 object-contain">
+          <img src="https://essamsherif16-del.github.io/mira-dental-center/mastercard.png" alt="Mastercard" class="h-10 object-contain">
+        </div>
+        <h3 class="font-bold text-gray-900">Credit / Debit Card</h3>
+        <p class="text-sm text-gray-500 mt-1">Visa & Mastercard</p>
+      </div>
+      <div class="bg-white rounded-2xl p-6 text-center border border-gray-100 shadow-sm card-hover">
+        <img src="https://essamsherif16-del.github.io/mira-dental-center/instapay.png" alt="InstaPay" class="h-12 mx-auto mb-3 object-contain">
+        <h3 class="font-bold text-gray-900">InstaPay</h3>
+        <p class="text-sm text-gray-500 mt-1">Mobile Wallet</p>
+      </div>
+      <div class="bg-white rounded-2xl p-6 text-center border border-gray-100 shadow-sm card-hover">
+        <div class="w-20 h-20 mx-auto mb-3 bg-blue-50 rounded-xl flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line></svg>
+        </div>
+        <h3 class="font-bold text-gray-900">Bank Transfer</h3>
+        <p class="text-sm text-gray-500 mt-1">All Major Banks</p>
+      </div>
+    </div>
+    <div class="mt-8 text-center">
+      <p class="text-gray-500 text-sm">💡 We also offer <span class="font-semibold text-gray-700">installment plans</span> for major procedures. Ask us about flexible payment options.</p>
+    </div>
+  </div>
+</section>
 <footer class="bg-gray-900 text-white py-16">
   <div class="max-w-7xl mx-auto px-6">
     <div class="flex flex-col md:flex-row items-center justify-between gap-8">
@@ -607,6 +683,101 @@ function closeLightbox() {
 <a href="https://wa.me/201111197399?text=Hello%20Mira%20Dental%20Center%2C%20I%20would%20like%20to%20book%20an%20appointment." target="_blank" class="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-400 text-white w-16 h-16 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition duration-300 text-3xl">
   &#128172;
 </a>
+<script>
+const API_BASE_URL = "https://REPLACE-WITH-YOUR-RENDER-URL.onrender.com";
 
+async function sendBooking(e) {
+  e.preventDefault();
+  var name = document.getElementById("patientName").value.trim();
+  var phone = document.getElementById("patientPhone").value.trim();
+  var date = document.getElementById("preferredDate").value;
+  var time = document.getElementById("preferredTime").value;
+  var service = document.getElementById("serviceNeeded").value;
+  var issue = document.getElementById("patientIssue").value.trim();
+  var files = document.getElementById("patientFiles").files;
+  var filesNote = files.length > 0 ? files.length + " file(s) selected" : "";
+
+  var submitBtn = e.target.querySelector('button[type="submit"]');
+  var originalLabel = submitBtn.textContent;
+  submitBtn.disabled = true;
+  submitBtn.textContent = "Sending...";
+
+  try {
+    await fetch(API_BASE_URL + "/api/bookings", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: name,
+        phone: phone,
+        preferred_date: date,
+        preferred_time: time,
+        service: service,
+        issue: issue,
+        files_note: filesNote
+      })
+    });
+  } catch (err) {
+    console.warn("Backend save failed, continuing with WhatsApp:", err);
+  }
+
+  var msg = "Hello Mira Dental Center, I would like to book an appointment.\n\n";
+  msg += "*Patient Details:*\n";
+  msg += "Name: " + name + "\n";
+  msg += "Phone: " + phone + "\n";
+  if (date) msg += "Preferred Date: " + date + "\n";
+  if (time) msg += "Preferred Time: " + time + "\n";
+  if (service) msg += "Service: " + service + "\n";
+  msg += "\n*Issue / Symptoms:*\n" + issue;
+  if (filesNote) msg += "\n\n*Note:* " + filesNote;
+  msg += "\n\nPlease confirm my appointment. Thank you!";
+
+  var url = "https://wa.me/201111197399?text=" + encodeURIComponent(msg);
+  window.open(url, "_blank");
+
+  submitBtn.disabled = false;
+  submitBtn.textContent = originalLabel;
+}
+
+function openLightbox(el) {
+  var img = el.querySelector('img');
+  document.getElementById('lightboxImg').src = img.src;
+  document.getElementById('lightbox').classList.add('active');
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('active');
+}
+
+var brightenTargets = document.querySelectorAll('.brighten-in');
+if ('IntersectionObserver' in window) {
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, {threshold: 0.3});
+  brightenTargets.forEach(function(el){ io.observe(el); });
+} else {
+  brightenTargets.forEach(function(el){ el.classList.add('is-visible'); });
+}
+
+(function trackVisit(){
+  var counterEl = document.getElementById('visitCounter');
+  var alreadyCounted = sessionStorage.getItem('mira_visit_logged');
+  var endpoint = API_BASE_URL + (alreadyCounted ? "/api/visit-count" : "/api/visit");
+  var options = alreadyCounted ? {} : { method: "POST" };
+
+  fetch(endpoint, options)
+    .then(function(r){ return r.json(); })
+    .then(function(data){
+      if (!alreadyCounted) sessionStorage.setItem('mira_visit_logged', '1');
+      if (counterEl && typeof data.total === 'number') {
+        counterEl.textContent = data.total.toLocaleString() + " visits since launch";
+      }
+    })
+    .catch(function(){});
+})();
+</script>
 </body>
 </html>
