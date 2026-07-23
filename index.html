@@ -4,202 +4,192 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mira Dental Center | Maadi, Cairo</title>
-<meta name="description" content="Mira Dental Center in Maadi, Cairo. 10+ years of trusted dental care. Call 0111 119 7399. Rated 4.8 stars by 178 patients.">
+<meta name="description" content="Mira Dental Center in Maadi, Cairo. 10+ years of trusted dental care led by Dr. Ahmed El Khadem. Call 0111 119 7399. Rated 4.8 stars by 179 patients.">
 <script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          porcelain: '#F4F8F5',
+          ink: '#16241D',
+          sage: '#4F6F5D',
+          coral: '#E8735F',
+          sand: '#E4D9C3',
+          mist: '#DCEAE1',
+        },
+        fontFamily: {
+          display: ['Fraunces', 'serif'],
+          body: ['Inter', 'sans-serif'],
+          mono: ['"IBM Plex Mono"', 'monospace'],
+        }
+      }
+    }
+  }
+</script>
 <style>
-body{font-family:'Inter',sans-serif;}
-h1,h2,h3,h4{font-family:'Playfair Display',serif;}
-.gallery-img{cursor:pointer;transition:transform 0.3s;}
-.gallery-img:hover{transform:scale(1.03);}
-.lightbox{position:fixed;inset:0;z-50;background:rgba(0,0,0,0.9);display:none;align-items:center;justify-content:center;}
-.lightbox.active{display:flex;}
-.lightbox img{max-width:90%;max-height:90%;border-radius:12px;}
-.hero-bg{background:linear-gradient(135deg,#1a365d 0%,#2c5282 50%,#2b6cb0 100%);}
-.card-hover{transition:all 0.3s ease;}
-.card-hover:hover{transform:translateY(-8px);box-shadow:0 20px 40px rgba(0,0,0,0.1);}
-.btn-primary{background:linear-gradient(135deg,#c53030 0%,#e53e3e 100%);}
-.btn-primary:hover{background:linear-gradient(135deg,#9b2c2c 0%,#c53030 100%);}
-.section-alt{background:#f7fafc;}
-.review-card{transition:all 0.3s ease;}
-.review-card:hover{transform:translateY(-4px);box-shadow:0 12px 24px rgba(0,0,0,0.08);}
+  body{background:#F4F8F5;color:#16241D;}
+  .eyebrow{font-family:'IBM Plex Mono',monospace;letter-spacing:0.14em;text-transform:uppercase;font-size:0.72rem;}
+  .stat-mono{font-family:'IBM Plex Mono',monospace;}
+  .card-lift{transition:transform .35s ease, box-shadow .35s ease;}
+  .card-lift:hover{transform:translateY(-6px);box-shadow:0 24px 48px -12px rgba(22,36,29,0.18);}
+  .brighten-in{filter:brightness(0.72) saturate(0.55);transform:scale(1.015);transition:filter 1.1s cubic-bezier(.2,.7,.2,1), transform 1.1s cubic-bezier(.2,.7,.2,1);}
+  .brighten-in.is-visible{filter:brightness(1) saturate(1);transform:scale(1);}
+  .dapple{position:absolute;border-radius:9999px;filter:blur(60px);opacity:.35;pointer-events:none;}
+  .dapple-drift{animation:drift 22s ease-in-out infinite;}
+  @keyframes drift{0%,100%{transform:translate(0,0);}50%{transform:translate(18px,-14px);}}
+  @media (prefers-reduced-motion: reduce){.brighten-in,.dapple-drift{animation:none!important;transition:none!important;filter:none!important;transform:none!important;}}
+  .lightbox{position:fixed;inset:0;z-index:50;background:rgba(22,36,29,0.92);display:none;align-items:center;justify-content:center;}
+  .lightbox.active{display:flex;}
+  .lightbox img{max-width:90%;max-height:90%;border-radius:14px;}
+  .review-card{transition:transform .3s ease, box-shadow .3s ease;}
+  .review-card:hover{transform:translateY(-4px);box-shadow:0 16px 32px -10px rgba(22,36,29,0.14);}
+  .divider-leaf{height:1px;background:linear-gradient(90deg,transparent,#4F6F5D55,transparent);}
+  input:focus,select:focus,textarea:focus{outline:none;border-color:#4F6F5D;box-shadow:0 0 0 3px #DCEAE1;}
 </style>
+<base target="_blank">
 </head>
-<body class="bg-white text-gray-800">
+<body class="font-body">
 
-<nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm">
+<nav class="sticky top-0 z-50 bg-porcelain/95 backdrop-blur-md border-b border-ink/10">
   <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
     <div class="flex items-center gap-3">
-      <img src="https://essamsherif16-del.github.io/mira-dental-center/logo.jpg" alt="Mira Dental Center Logo" class="w-12 h-12 rounded-xl object-cover">
+      <img src="https://essamsherif16-del.github.io/mira-dental-center/logo.jpg" alt="Mira Dental Center Logo" class="w-11 h-11 rounded-full object-cover">
       <div>
-        <h1 class="font-bold text-xl leading-tight text-gray-900" style="font-family:'Playfair Display',serif;">Mira Dental Center</h1>
-        <p class="text-xs text-gray-500 tracking-wide">MAADI, CAIRO</p>
+        <h1 class="font-display font-semibold text-lg leading-tight text-ink">Mira Dental Center</h1>
+        <p class="eyebrow text-sage">Maadi, Cairo</p>
       </div>
     </div>
-    <div class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600">
-      <a href="#home" class="hover:text-red-600 transition">Home</a>
-      <a href="#services" class="hover:text-red-600 transition">Services</a>
-      <a href="#gallery" class="hover:text-red-600 transition">Gallery</a>
-      <a href="#reviews" class="hover:text-red-600 transition">Reviews</a>
-      <a href="#about" class="hover:text-red-600 transition">About</a>
-      <a href="#booking" class="hover:text-red-600 transition">Book</a>
-      <a href="#contact" class="hover:text-red-600 transition">Contact</a>
-      <a href="#payment" class="hover:text-red-600 transition">Payment</a>
+    <div class="hidden md:flex items-center gap-8 text-sm font-medium text-ink/70">
+      <a href="#home" class="hover:text-coral transition">Home</a>
+      <a href="#services" class="hover:text-coral transition">Services</a>
+      <a href="#gallery" class="hover:text-coral transition">Gallery</a>
+      <a href="#reviews" class="hover:text-coral transition">Reviews</a>
+      <a href="#about" class="hover:text-coral transition">About</a>
+      <a href="#booking" class="hover:text-coral transition">Book</a>
+      <a href="#contact" class="hover:text-coral transition">Contact</a>
+      <a href="#payment" class="hover:text-coral transition">Payment</a>
     </div>
     <div class="flex items-center gap-3">
-      <a href="https://m.me/MiraDentalCenter" target="_blank" class="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center text-white hover:scale-110 transition shadow-md" title="Message on Facebook Messenger">
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.03 2 11c0 2.76 1.36 5.23 3.5 6.86V22l3.09-1.68c.82.23 1.69.36 2.59.36 5.52 0 10-4.03 10-9s-4.48-9-10-9zm1.09 12.09l-2.59-2.76-5.06 2.76 5.57-5.93 2.59 2.76 5.06-2.76-5.57 5.93z"/></svg>
+      <a href="https://m.me/MiraDentalCenter" target="_blank" class="w-10 h-10 rounded-full bg-ink/5 flex items-center justify-center text-ink hover:bg-ink hover:text-porcelain transition" title="Message on Facebook Messenger">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.03 2 11c0 2.76 1.36 5.23 3.5 6.86V22l3.09-1.68c.82.23 1.69.36 2.59.36 5.52 0 10-4.03 10-9s-4.48-9-10-9zm1.09 12.09l-2.59-2.76-5.06 2.76 5.57-5.93 2.59 2.76 5.06-2.76-5.57 5.93z"/></svg>
       </a>
-      <a href="https://ig.me/m/mira_dental_center_" target="_blank" class="w-10 h-10 rounded-full bg-gradient-to-tr from-purple-500 via-pink-500 to-orange-500 flex items-center justify-center text-white hover:scale-110 transition shadow-md" title="Message on Instagram">
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+      <a href="https://ig.me/m/mira_dental_center_" target="_blank" class="w-10 h-10 rounded-full bg-ink/5 flex items-center justify-center text-ink hover:bg-ink hover:text-porcelain transition" title="Message on Instagram">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
       </a>
-      <a href="#booking" class="btn-primary text-white px-6 py-2.5 rounded-full text-sm font-semibold transition shadow-lg flex items-center gap-2">
-        <span>&#9993;</span> Book Now
-      </a>
+      <a href="#booking" class="bg-coral text-porcelain px-6 py-2.5 rounded-full text-sm font-semibold hover:bg-ink transition">Book Now</a>
     </div>
   </div>
 </nav>
 
-<section id="home" class="hero-bg relative overflow-hidden text-white">
-  <div class="absolute inset-0 opacity-10" style="background-image:url('data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
-  <div class="relative max-w-7xl mx-auto px-6 py-24 md:py-32">
-    <div class="grid md:grid-cols-2 gap-12 items-center">
-      <div class="space-y-8">
-        <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur text-white px-5 py-2 rounded-full text-sm font-medium border border-white/20">
-          <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
-          Open Today 1 PM – 9 PM
+<section id="home" class="relative overflow-hidden">
+  <div class="dapple dapple-drift bg-mist w-96 h-96 -top-20 -left-20"></div>
+  <div class="dapple dapple-drift bg-sand w-72 h-72 top-40 right-0" style="animation-delay:-8s;"></div>
+  <div class="relative max-w-7xl mx-auto px-6 py-20 md:py-28">
+    <div class="grid md:grid-cols-2 gap-14 items-center">
+      <div class="space-y-7">
+        <p class="eyebrow text-sage">Maadi, Cairo · Est. over 10 years ago</p>
+        <h2 class="font-display font-semibold text-5xl md:text-6xl leading-[1.05] text-ink">Care shaped like<br>Maadi's mornings.</h2>
+        <p class="text-lg text-ink/70 leading-relaxed max-w-md">Quiet, unhurried dental care under Dr. Ahmed El Khadem — the kind of clinic where the light through the window matters as much as the equipment on the wall.</p>
+        <div class="flex flex-wrap gap-4 pt-2">
+          <a href="#booking" class="bg-coral text-porcelain px-7 py-3.5 rounded-full font-semibold hover:bg-ink transition">Book an appointment</a>
+          <a href="tel:01111197399" class="border border-ink/20 text-ink px-7 py-3.5 rounded-full font-semibold hover:border-ink transition">Call 0111 119 7399</a>
         </div>
-        <h2 class="text-5xl md:text-6xl font-bold leading-tight" style="font-family:'Playfair Display',serif;">Expert Dental Care<br>in <span class="text-red-300">Maadi</span></h2>
-        <p class="text-xl text-blue-100 leading-relaxed max-w-lg">Professional dental care with 10+ years of trusted service. Advanced equipment, compassionate team, and stunning results.</p>
-        <div class="flex flex-wrap gap-4">
-          <a href="#booking" class="btn-primary text-white px-8 py-4 rounded-full font-semibold transition shadow-xl flex items-center gap-2 text-lg">
-            <span>&#128172;</span> Book Appointment
-          </a>
-          <a href="tel:01111197399" class="bg-white/10 hover:bg-white/20 text-white border border-white/30 px-8 py-4 rounded-full font-semibold transition backdrop-blur flex items-center gap-2 text-lg">
-            <span>&#128222;</span> Call Us
-          </a>
-        </div>
-        <div class="flex items-center gap-6 pt-4">
-          <div class="flex -space-x-3">
-            <div class="w-12 h-12 rounded-full bg-blue-400 border-3 border-white flex items-center justify-center text-white text-sm font-bold">M</div>
-            <div class="w-12 h-12 rounded-full bg-red-400 border-3 border-white flex items-center justify-center text-white text-sm font-bold">A</div>
-            <div class="w-12 h-12 rounded-full bg-green-400 border-3 border-white flex items-center justify-center text-white text-sm font-bold">Y</div>
-          </div>
-          <div>
-            <div class="flex items-center gap-1">
-              <span class="text-yellow-300 text-xl">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-              <span class="font-bold text-white text-lg">4.8</span>
-              <span class="text-blue-200">(178 reviews)</span>
-            </div>
-            <p class="text-sm text-blue-200">Trusted by families in Maadi</p>
-          </div>
+        <div class="flex items-center gap-8 pt-6 stat-mono text-sm">
+          <div><span class="text-2xl text-ink font-semibold">4.8</span><span class="text-ink/50"> / 179 reviews</span></div>
+          <div class="w-px h-8 bg-ink/15"></div>
+          <div><span class="text-2xl text-ink font-semibold">10+</span><span class="text-ink/50"> years</span></div>
         </div>
       </div>
       <div class="relative">
-        <div class="absolute -inset-4 bg-white/10 rounded-3xl rotate-2"></div>
-        <div class="relative bg-white rounded-3xl shadow-2xl overflow-hidden">
-          <a href="https://essamsherif16-del.github.io/mira-dental-center/dental_clinic.jpg" target="_blank" title="Click to view full size">
-            <img src="https://essamsherif16-del.github.io/mira-dental-center/dental_clinic.jpg" alt="Mira Dental Center Clinic Interior" class="w-full h-80 object-cover hover:scale-105 transition duration-500 cursor-zoom-in">
-          </a>
-          <div class="p-6 bg-white">
-            <div class="flex items-center justify-between">
-              <div>
-                <h3 class="font-semibold text-gray-900 text-lg">Modern Equipment</h3>
-                <p class="text-sm text-gray-500">Advanced dental technology</p>
-              </div>
-              <div class="w-14 h-14 bg-blue-50 rounded-full flex items-center justify-center text-blue-600 text-2xl">&#10003;</div>
-            </div>
-          </div>
+        <a href="https://essamsherif16-del.github.io/mira-dental-center/dental_clinic.jpg" target="_blank">
+          <img src="https://essamsherif16-del.github.io/mira-dental-center/dental_clinic.jpg" alt="Mira Dental Center Clinic Interior" class="brighten-in rounded-2xl shadow-2xl w-full h-[420px] object-cover">
+        </a>
+        <div class="absolute -bottom-6 -left-6 bg-porcelain border border-ink/10 rounded-xl px-6 py-4 shadow-xl hidden sm:block">
+          <p class="eyebrow text-sage mb-1">Open today</p>
+          <p class="font-display text-lg text-ink">1 PM – 9 PM</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section id="services" class="py-24 section-alt">
+<section id="services" class="py-24 border-t border-ink/10">
   <div class="max-w-7xl mx-auto px-6">
-    <div class="text-center mb-16">
-      <span class="text-red-600 font-semibold text-sm uppercase tracking-widest">Our Services</span>
-      <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mt-3" style="font-family:'Playfair Display',serif;">Comprehensive Dental Care</h2>
-      <div class="w-20 h-1 bg-red-600 mx-auto mt-6 rounded-full"></div>
-      <p class="text-gray-600 mt-6 max-w-2xl mx-auto text-lg">From routine checkups to advanced procedures, we provide full-spectrum dental care for the whole family.</p>
+    <div class="max-w-xl mb-16">
+      <p class="eyebrow text-sage mb-3">Our services</p>
+      <h2 class="font-display font-semibold text-4xl md:text-5xl text-ink">Comprehensive dental care</h2>
+      <p class="text-ink/70 mt-5 text-lg leading-relaxed">From routine checkups to advanced procedures — full-spectrum care for the whole family.</p>
     </div>
-    <div class="grid md:grid-cols-3 gap-8">
-      <a href="#booking" class="bg-white rounded-2xl p-8 shadow-sm card-hover border border-gray-100 group block">
-        <div class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-blue-600 transition text-3xl">&#128513;</div>
-        <h3 class="text-xl font-bold text-gray-900 mb-3">General Dentistry</h3>
-        <p class="text-gray-600 leading-relaxed">Regular checkups, cleanings, fillings, and preventive care to keep your smile healthy year-round.</p>
-        <span class="inline-flex items-center gap-1 text-blue-600 font-medium text-sm mt-4 group-hover:gap-2 transition">Book this service &rarr;</span>
+    <div class="grid md:grid-cols-3 gap-6">
+      <a href="#booking" class="card-lift bg-white rounded-2xl p-8 border border-ink/10 block">
+        <p class="eyebrow text-coral mb-4">General</p>
+        <h3 class="font-display text-xl text-ink mb-3">General Dentistry</h3>
+        <p class="text-ink/65 leading-relaxed text-sm">Regular checkups, cleanings, fillings, and preventive care to keep your smile healthy year-round.</p>
       </a>
-      <a href="#booking" class="bg-white rounded-2xl p-8 shadow-sm card-hover border border-gray-100 group block">
-        <div class="w-16 h-16 bg-red-50 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-red-600 transition text-3xl">&#9881;</div>
-        <h3 class="text-xl font-bold text-gray-900 mb-3">Orthodontics</h3>
-        <p class="text-gray-600 leading-relaxed">Braces, aligners, and bite correction for children and adults. Straighten your smile with expert care.</p>
-        <span class="inline-flex items-center gap-1 text-red-600 font-medium text-sm mt-4 group-hover:gap-2 transition">Book this service &rarr;</span>
+      <a href="#booking" class="card-lift bg-white rounded-2xl p-8 border border-ink/10 block">
+        <p class="eyebrow text-coral mb-4">Ortho</p>
+        <h3 class="font-display text-xl text-ink mb-3">Orthodontics</h3>
+        <p class="text-ink/65 leading-relaxed text-sm">Braces, aligners, and bite correction for children and adults.</p>
       </a>
-      <a href="#booking" class="bg-white rounded-2xl p-8 shadow-sm card-hover border border-gray-100 group block">
-        <div class="w-16 h-16 bg-green-50 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-green-600 transition text-3xl">&#9829;</div>
-        <h3 class="text-xl font-bold text-gray-900 mb-3">Pediatric Dentistry</h3>
-        <p class="text-gray-600 leading-relaxed">Gentle, friendly dental care for kids. Dr. Ahmed El Khadem specializes in making children feel at ease.</p>
-        <span class="inline-flex items-center gap-1 text-green-600 font-medium text-sm mt-4 group-hover:gap-2 transition">Book this service &rarr;</span>
+      <a href="#booking" class="card-lift bg-white rounded-2xl p-8 border border-ink/10 block">
+        <p class="eyebrow text-coral mb-4">Pediatric</p>
+        <h3 class="font-display text-xl text-ink mb-3">Pediatric Dentistry</h3>
+        <p class="text-ink/65 leading-relaxed text-sm">Gentle, friendly care — Dr. Ahmed El Khadem specializes in making children feel at ease.</p>
       </a>
-      <a href="#booking" class="bg-white rounded-2xl p-8 shadow-sm card-hover border border-gray-100 group block">
-        <div class="w-16 h-16 bg-purple-50 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-purple-600 transition text-3xl">&#127912;</div>
-        <h3 class="text-xl font-bold text-gray-900 mb-3">Cosmetic Dentistry</h3>
-        <p class="text-gray-600 leading-relaxed">Teeth whitening, veneers, and smile makeovers. Transform your smile with our aesthetic treatments.</p>
-        <span class="inline-flex items-center gap-1 text-purple-600 font-medium text-sm mt-4 group-hover:gap-2 transition">Book this service &rarr;</span>
+      <a href="#booking" class="card-lift bg-white rounded-2xl p-8 border border-ink/10 block">
+        <p class="eyebrow text-coral mb-4">Cosmetic</p>
+        <h3 class="font-display text-xl text-ink mb-3">Cosmetic Dentistry</h3>
+        <p class="text-ink/65 leading-relaxed text-sm">Teeth whitening, veneers, and smile makeovers.</p>
       </a>
-      <a href="#booking" class="bg-white rounded-2xl p-8 shadow-sm card-hover border border-gray-100 group block">
-        <div class="w-16 h-16 bg-amber-50 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-amber-600 transition text-3xl">&#128196;</div>
-        <h3 class="text-xl font-bold text-gray-900 mb-3">Root Canal Treatment</h3>
-        <p class="text-gray-600 leading-relaxed">Pain-free root canal therapy using the latest techniques. Save your natural tooth with precision care.</p>
-        <span class="inline-flex items-center gap-1 text-amber-600 font-medium text-sm mt-4 group-hover:gap-2 transition">Book this service &rarr;</span>
+      <a href="#booking" class="card-lift bg-white rounded-2xl p-8 border border-ink/10 block">
+        <p class="eyebrow text-coral mb-4">Endodontic</p>
+        <h3 class="font-display text-xl text-ink mb-3">Root Canal Treatment</h3>
+        <p class="text-ink/65 leading-relaxed text-sm">Pain-free root canal therapy using the latest techniques.</p>
       </a>
-      <a href="#booking" class="bg-white rounded-2xl p-8 shadow-sm card-hover border border-gray-100 group block">
-        <div class="w-16 h-16 bg-emerald-50 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-emerald-600 transition text-3xl">&#128170;</div>
-        <h3 class="text-xl font-bold text-gray-900 mb-3">Dental Implants</h3>
-        <p class="text-gray-600 leading-relaxed">Permanent tooth replacement solutions. Restore function and aesthetics with our implant expertise.</p>
-        <span class="inline-flex items-center gap-1 text-emerald-600 font-medium text-sm mt-4 group-hover:gap-2 transition">Book this service &rarr;</span>
+      <a href="#booking" class="card-lift bg-white rounded-2xl p-8 border border-ink/10 block">
+        <p class="eyebrow text-coral mb-4">Implants</p>
+        <h3 class="font-display text-xl text-ink mb-3">Dental Implants</h3>
+        <p class="text-ink/65 leading-relaxed text-sm">Permanent tooth replacement solutions, restoring function and aesthetics.</p>
       </a>
     </div>
   </div>
 </section>
 
-<section id="gallery" class="py-24 bg-white">
+<section id="gallery" class="py-24 bg-mist/40 border-t border-ink/10">
   <div class="max-w-7xl mx-auto px-6">
-    <div class="text-center mb-16">
-      <span class="text-red-600 font-semibold text-sm uppercase tracking-widest">Transformations</span>
-      <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mt-3" style="font-family:'Playfair Display',serif;">Before & After Gallery</h2>
-      <div class="w-20 h-1 bg-red-600 mx-auto mt-6 rounded-full"></div>
-      <p class="text-gray-600 mt-6 max-w-2xl mx-auto text-lg">Real results from real patients. See the amazing transformations by Dr. Ahmed El Khadem.</p>
+    <div class="max-w-xl mb-16">
+      <p class="eyebrow text-sage mb-3">Transformations</p>
+      <h2 class="font-display font-semibold text-4xl md:text-5xl text-ink">Real results, real patients</h2>
+      <p class="text-ink/70 mt-5 text-lg leading-relaxed">A look at recent work by Dr. Ahmed El Khadem and the team.</p>
     </div>
     <div class="grid md:grid-cols-3 gap-8">
-      <div class="bg-gray-50 rounded-2xl overflow-hidden border border-gray-100 card-hover cursor-pointer" onclick="openLightbox(this)">
-        <img src="https://essamsherif16-del.github.io/mira-dental-center/beforeafter1.jpg" alt="Before and After - Dental Veneers" class="w-full h-80 object-cover gallery-img">
-        <div class="p-6 bg-white">
-          <h3 class="font-bold text-gray-900 text-lg mb-1">Smile Makeover</h3>
-          <p class="text-sm text-gray-500">Dental Veneers & Crowns</p>
+      <div class="bg-white rounded-2xl overflow-hidden border border-ink/10 card-lift cursor-pointer" onclick="openLightbox(this)">
+        <img src="https://essamsherif16-del.github.io/mira-dental-center/beforeafter1.jpg" alt="Before and After - Dental Veneers" class="w-full h-72 object-cover gallery-img">
+        <div class="p-6">
+          <h3 class="font-display text-lg text-ink mb-1">Smile Makeover</h3>
+          <p class="eyebrow text-sage">Veneers & crowns</p>
         </div>
       </div>
-      <div class="bg-gray-50 rounded-2xl overflow-hidden border border-gray-100 card-hover cursor-pointer" onclick="openLightbox(this)">
-        <img src="https://essamsherif16-del.github.io/mira-dental-center/beforeafter2.jpg" alt="Before and After - Full Mouth Restoration" class="w-full h-80 object-cover gallery-img">
-        <div class="p-6 bg-white">
-          <h3 class="font-bold text-gray-900 text-lg mb-1">Full Mouth Restoration</h3>
-          <p class="text-sm text-gray-500">Implants & Cosmetic Work</p>
+      <div class="bg-white rounded-2xl overflow-hidden border border-ink/10 card-lift cursor-pointer" onclick="openLightbox(this)">
+        <img src="https://essamsherif16-del.github.io/mira-dental-center/beforeafter2.jpg" alt="Before and After - Full Mouth Restoration" class="w-full h-72 object-cover gallery-img">
+        <div class="p-6">
+          <h3 class="font-display text-lg text-ink mb-1">Full Mouth Restoration</h3>
+          <p class="eyebrow text-sage">Implants & cosmetic work</p>
         </div>
       </div>
-      <div class="bg-gray-50 rounded-2xl overflow-hidden border border-gray-100 card-hover cursor-pointer" onclick="openLightbox(this)">
-        <img src="https://essamsherif16-del.github.io/mira-dental-center/beforeafter3.jpg" alt="Before and After - Dental Implants" class="w-full h-80 object-cover gallery-img">
-        <div class="p-6 bg-white">
-          <h3 class="font-bold text-gray-900 text-lg mb-1">Dental Implants</h3>
-          <p class="text-sm text-gray-500">Permanent Tooth Replacement</p>
+      <div class="bg-white rounded-2xl overflow-hidden border border-ink/10 card-lift cursor-pointer" onclick="openLightbox(this)">
+        <img src="https://essamsherif16-del.github.io/mira-dental-center/beforeafter3.jpg" alt="Before and After - Dental Implants" class="w-full h-72 object-cover gallery-img">
+        <div class="p-6">
+          <h3 class="font-display text-lg text-ink mb-1">Dental Implants</h3>
+          <p class="eyebrow text-sage">Permanent tooth replacement</p>
         </div>
       </div>
     </div>
     <div class="mt-12 text-center">
-      <a href="https://ig.me/m/mira_dental_center_" target="_blank" class="inline-flex items-center gap-2 bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 text-white px-8 py-4 rounded-full font-semibold transition shadow-lg hover:shadow-xl text-lg">
-        <span>&#128247;</span> View More on Instagram
-      </a>
+      <a href="https://ig.me/m/mira_dental_center_" target="_blank" class="inline-flex items-center gap-2 border border-ink/20 text-ink px-8 py-3.5 rounded-full font-semibold hover:border-ink transition">View more on Instagram</a>
     </div>
   </div>
 </section>
@@ -208,180 +198,116 @@ h1,h2,h3,h4{font-family:'Playfair Display',serif;}
   <img id="lightboxImg" src="" alt="Gallery Image">
 </div>
 
-<section id="video" class="py-24 section-alt">
+<section id="video" class="py-24 border-t border-ink/10">
   <div class="max-w-5xl mx-auto px-6">
-    <div class="text-center mb-16">
-      <span class="text-red-600 font-semibold text-sm uppercase tracking-widest">See Our Work</span>
-      <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mt-3" style="font-family:'Playfair Display',serif;">Clinic Tour & Results</h2>
-      <div class="w-20 h-1 bg-red-600 mx-auto mt-6 rounded-full"></div>
-      <p class="text-gray-600 mt-6 text-lg">Watch our video to see the clinic and patient transformations.</p>
+    <div class="max-w-xl mx-auto text-center mb-16">
+      <p class="eyebrow text-sage mb-3">Find us</p>
+      <h2 class="font-display font-semibold text-4xl md:text-5xl text-ink">Visit the clinic</h2>
     </div>
-    <div class="bg-white rounded-3xl overflow-hidden shadow-2xl border border-gray-100">
+    <div class="bg-white rounded-2xl overflow-hidden shadow-xl border border-ink/10">
       <div class="relative w-full" style="padding-bottom:56.25%;">
         <iframe class="absolute inset-0 w-full h-full" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3456.123456789!2d31.2506!3d30.0084!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzDCsDAwJzMwLjIiTiAzMcKwMTUnMDIuMiJF!5e0!3m2!1sen!2seg!4v1234567890" frameborder="0" allowfullscreen loading="lazy"></iframe>
       </div>
     </div>
     <div class="mt-10 text-center">
-      <a href="https://maps.app.goo.gl/3Pmt2XYs5MUKeX8S9" target="_blank" class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full font-semibold transition shadow-lg text-lg">
-        <span>&#128205;</span> Open in Google Maps
-      </a>
+      <a href="https://maps.app.goo.gl/3Pmt2XYs5MUKeX8S9" target="_blank" class="inline-flex items-center gap-2 bg-ink text-porcelain px-8 py-3.5 rounded-full font-semibold hover:bg-sage transition">Open in Google Maps</a>
     </div>
   </div>
 </section>
-            <p class="font-semibold text-gray-900 text-sm">Mohamed Helal</p>
-            <p class="text-xs text-gray-500">6 months ago</p>
-          </div>
+
+<section id="reviews" class="py-24 bg-mist/40 border-t border-ink/10">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="max-w-xl mb-16">
+      <p class="eyebrow text-sage mb-3">Reviews</p>
+      <h2 class="font-display font-semibold text-4xl md:text-5xl text-ink">What patients say</h2>
+      <p class="text-ink/70 mt-5 text-lg leading-relaxed">179 reviews on Google, averaging 4.8 stars.</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6">
+      <a href="https://www.google.com/maps/place/Mira+Dental+Center/@30.0084,31.2506,17z" target="_blank" class="bg-white rounded-2xl p-6 border border-ink/10 review-card block">
+        <div class="flex items-center gap-1 mb-3 text-amber-400 text-lg">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="text-ink/80 leading-relaxed mb-4 italic text-sm">"I've honestly had such a great experience coming here, and I can't recommend it enough. The staff is always kindhearted and very professional."</p>
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 bg-mist rounded-full flex items-center justify-center text-sage font-semibold text-xs">M</div>
+          <div><p class="font-semibold text-ink text-sm">Malak</p><p class="eyebrow text-ink/40">10 months ago</p></div>
         </div>
       </a>
-      <a href="https://www.google.com/maps/place/Mira+Dental+Center/@30.0084,31.2506,17z" target="_blank" class="bg-gray-50 rounded-2xl p-6 border border-gray-100 review-card block">
-        <div class="flex items-center gap-1 mb-3 text-yellow-400 text-lg">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p class="text-gray-700 leading-relaxed mb-4 italic text-sm">"Very nice and clean"</p>
+      <a href="https://www.google.com/maps/place/Mira+Dental+Center/@30.0084,31.2506,17z" target="_blank" class="bg-white rounded-2xl p-6 border border-ink/10 review-card block">
+        <div class="flex items-center gap-1 mb-3 text-amber-400 text-lg">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="text-ink/80 leading-relaxed mb-4 italic text-sm">"Excellent dental center with professional doctors and a very friendly team. Clean, organized, and uses advanced equipment."</p>
         <div class="flex items-center gap-3">
-          <div class="w-10 h-10 bg-teal-100 rounded-full flex items-center justify-center text-teal-700 font-bold text-sm">LA</div>
-          <div>
-            <p class="font-semibold text-gray-900 text-sm">Lara Aboelseoud</p>
-            <p class="text-xs text-gray-500">6 months ago</p>
-          </div>
+          <div class="w-9 h-9 bg-mist rounded-full flex items-center justify-center text-sage font-semibold text-xs">MG</div>
+          <div><p class="font-semibold text-ink text-sm">Mahmoud Gouda</p><p class="eyebrow text-ink/40">7 months ago</p></div>
         </div>
       </a>
-      <a href="https://www.google.com/maps/place/Mira+Dental+Center/@30.0084,31.2506,17z" target="_blank" class="bg-gray-50 rounded-2xl p-6 border border-gray-100 review-card block">
-        <div class="flex items-center gap-1 mb-3 text-yellow-400 text-lg">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p class="text-gray-700 leading-relaxed mb-4 italic text-sm">"Mira Dental Clinic employs highly professional dentist and offers best dental services utilizing advance technology and equipment"</p>
+      <a href="https://www.google.com/maps/place/Mira+Dental+Center/@30.0084,31.2506,17z" target="_blank" class="bg-white rounded-2xl p-6 border border-ink/10 review-card block">
+        <div class="flex items-center gap-1 mb-3 text-amber-400 text-lg">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="text-ink/80 leading-relaxed mb-4 italic text-sm">"I've been going to this clinic for 10 years. The team is professional, and Dr. Ahmed El Khadem is consistently excellent — clear, precise, and organized."</p>
         <div class="flex items-center gap-3">
-          <div class="w-10 h-10 bg-rose-100 rounded-full flex items-center justify-center text-rose-700 font-bold text-sm">MA</div>
-          <div>
-            <p class="font-semibold text-gray-900 text-sm">Masood Ahmad</p>
-            <p class="text-xs text-gray-500">6 years ago</p>
-          </div>
+          <div class="w-9 h-9 bg-mist rounded-full flex items-center justify-center text-sage font-semibold text-xs">MY</div>
+          <div><p class="font-semibold text-ink text-sm">Mayar Yahya</p><p class="eyebrow text-ink/40">8 months ago</p></div>
         </div>
       </a>
-      <a href="https://www.google.com/maps/place/Mira+Dental+Center/@30.0084,31.2506,17z" target="_blank" class="bg-gray-50 rounded-2xl p-6 border border-gray-100 review-card block">
-        <div class="flex items-center gap-1 mb-3 text-yellow-400 text-lg">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p class="text-gray-700 leading-relaxed mb-4 italic text-sm">"Best clinic ever. Best staff"</p>
+      <a href="https://www.google.com/maps/place/Mira+Dental+Center/@30.0084,31.2506,17z" target="_blank" class="bg-white rounded-2xl p-6 border border-ink/10 review-card block">
+        <div class="flex items-center gap-1 mb-3 text-amber-400 text-lg">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="text-ink/80 leading-relaxed mb-4 italic text-sm">"Very nice and clean"</p>
         <div class="flex items-center gap-3">
-          <div class="w-10 h-10 bg-cyan-100 rounded-full flex items-center justify-center text-cyan-700 font-bold text-sm">IM</div>
-          <div>
-            <p class="font-semibold text-gray-900 text-sm">Isaac Michael</p>
-            <p class="text-xs text-gray-500">10 months ago</p>
-          </div>
+          <div class="w-9 h-9 bg-mist rounded-full flex items-center justify-center text-sage font-semibold text-xs">LA</div>
+          <div><p class="font-semibold text-ink text-sm">Lara Aboelseoud</p><p class="eyebrow text-ink/40">6 months ago</p></div>
         </div>
       </a>
-      <a href="https://www.google.com/maps/place/Mira+Dental+Center/@30.0084,31.2506,17z" target="_blank" class="bg-gray-50 rounded-2xl p-6 border border-gray-100 review-card block">
-        <div class="flex items-center gap-1 mb-3 text-yellow-400 text-lg">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p class="text-gray-700 leading-relaxed mb-4 italic text-sm">"One of the most professional dental centers in Maadi. Perfection and very good hospitality"</p>
+      <a href="https://www.google.com/maps/place/Mira+Dental+Center/@30.0084,31.2506,17z" target="_blank" class="bg-white rounded-2xl p-6 border border-ink/10 review-card block">
+        <div class="flex items-center gap-1 mb-3 text-amber-400 text-lg">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="text-ink/80 leading-relaxed mb-4 italic text-sm">"Mira Dental Clinic employs highly professional dentists and offers the best dental services utilizing advanced technology and equipment."</p>
         <div class="flex items-center gap-3">
-          <div class="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center text-orange-700 font-bold text-sm">MS</div>
-          <div>
-            <p class="font-semibold text-gray-900 text-sm">Mohamed Saad</p>
-            <p class="text-xs text-gray-500">6 years ago</p>
-          </div>
+          <div class="w-9 h-9 bg-mist rounded-full flex items-center justify-center text-sage font-semibold text-xs">MA</div>
+          <div><p class="font-semibold text-ink text-sm">Masood Ahmad</p><p class="eyebrow text-ink/40">6 years ago</p></div>
         </div>
       </a>
-      <a href="https://www.google.com/maps/place/Mira+Dental+Center/@30.0084,31.2506,17z" target="_blank" class="bg-gray-50 rounded-2xl p-6 border border-gray-100 review-card block">
-        <div class="flex items-center gap-1 mb-3 text-yellow-400 text-lg">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p class="text-gray-700 leading-relaxed mb-4 italic text-sm">"This is one of the professional clinic I am seeing which treat very friendly with their patients."</p>
+      <a href="https://www.google.com/maps/place/Mira+Dental+Center/@30.0084,31.2506,17z" target="_blank" class="bg-white rounded-2xl p-6 border border-ink/10 review-card block">
+        <div class="flex items-center gap-1 mb-3 text-amber-400 text-lg">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="text-ink/80 leading-relaxed mb-4 italic text-sm">"One of the most professional dental centers in Maadi. Perfection and very good hospitality."</p>
         <div class="flex items-center gap-3">
-          <div class="w-10 h-10 bg-lime-100 rounded-full flex items-center justify-center text-lime-700 font-bold text-sm">JN</div>
-          <div>
-            <p class="font-semibold text-gray-900 text-sm">Jalaluddin Nazim</p>
-            <p class="text-xs text-gray-500">6 years ago</p>
-          </div>
-        </div>
-      </a>
-      <a href="https://www.google.com/maps/place/Mira+Dental+Center/@30.0084,31.2506,17z" target="_blank" class="bg-gray-50 rounded-2xl p-6 border border-gray-100 review-card block">
-        <div class="flex items-center gap-1 mb-3 text-yellow-400 text-lg">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p class="text-gray-700 leading-relaxed mb-4 italic text-sm">"Thanks Dr Ahmed elkhadem for ur kind hospitality and service"</p>
-        <div class="flex items-center gap-3">
-          <div class="w-10 h-10 bg-sky-100 rounded-full flex items-center justify-center text-sky-700 font-bold text-sm">MM</div>
-          <div>
-            <p class="font-semibold text-gray-900 text-sm">Mohamed Mahmoud</p>
-            <p class="text-xs text-gray-500">6 years ago</p>
-          </div>
-        </div>
-      </a>
-      <a href="https://www.google.com/maps/place/Mira+Dental+Center/@30.0084,31.2506,17z" target="_blank" class="bg-gray-50 rounded-2xl p-6 border border-gray-100 review-card block">
-        <div class="flex items-center gap-1 mb-3 text-yellow-400 text-lg">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p class="text-gray-700 leading-relaxed mb-4 italic text-sm">"They're very professionals"</p>
-        <div class="flex items-center gap-3">
-          <div class="w-10 h-10 bg-violet-100 rounded-full flex items-center justify-center text-violet-700 font-bold text-sm">ME</div>
-          <div>
-            <p class="font-semibold text-gray-900 text-sm">Mustafa Elasi</p>
-            <p class="text-xs text-gray-500">9 months ago</p>
-          </div>
-        </div>
-      </a>
-      <a href="https://www.google.com/maps/place/Mira+Dental+Center/@30.0084,31.2506,17z" target="_blank" class="bg-gray-50 rounded-2xl p-6 border border-gray-100 review-card block">
-        <div class="flex items-center gap-1 mb-3 text-yellow-400 text-lg">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p class="text-gray-700 leading-relaxed mb-4 italic text-sm">"Still I have not experienced but I hope one day I experience the health services of Mira Dental Clinic."</p>
-        <div class="flex items-center gap-3">
-          <div class="w-10 h-10 bg-fuchsia-100 rounded-full flex items-center justify-center text-fuchsia-700 font-bold text-sm">RA</div>
-          <div>
-            <p class="font-semibold text-gray-900 text-sm">Reshad Ahmadzai</p>
-            <p class="text-xs text-gray-500">6 years ago</p>
-          </div>
-        </div>
-      </a>
-      <a href="https://www.google.com/maps/place/Mira+Dental+Center/@30.0084,31.2506,17z" target="_blank" class="bg-gray-50 rounded-2xl p-6 border border-gray-100 review-card block">
-        <div class="flex items-center gap-1 mb-3 text-yellow-400 text-lg">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p class="text-gray-700 leading-relaxed mb-4 italic text-sm">"Very professional and unique clinic"</p>
-        <div class="flex items-center gap-3">
-          <div class="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-700 font-bold text-sm">HH</div>
-          <div>
-            <p class="font-semibold text-gray-900 text-sm">Heba Hassan</p>
-            <p class="text-xs text-gray-500">10 months ago</p>
-          </div>
-        </div>
-      </a>
-      <a href="https://www.google.com/maps/place/Mira+Dental+Center/@30.0084,31.2506,17z" target="_blank" class="bg-gray-50 rounded-2xl p-6 border border-gray-100 review-card block">
-        <div class="flex items-center gap-1 mb-3 text-yellow-400 text-lg">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p class="text-gray-700 leading-relaxed mb-4 italic text-sm">"professional team"</p>
-        <div class="flex items-center gap-3">
-          <div class="w-10 h-10 bg-yellow-100 rounded-full flex items-center justify-center text-yellow-700 font-bold text-sm">AS</div>
-          <div>
-            <p class="font-semibold text-gray-900 text-sm">Aya Shaaban</p>
-            <p class="text-xs text-gray-500">7 months ago</p>
-          </div>
+          <div class="w-9 h-9 bg-mist rounded-full flex items-center justify-center text-sage font-semibold text-xs">MS</div>
+          <div><p class="font-semibold text-ink text-sm">Mohamed Saad</p><p class="eyebrow text-ink/40">6 years ago</p></div>
         </div>
       </a>
     </div>
     <div class="mt-12 text-center">
-      <a href="https://www.google.com/maps/place/Mira+Dental+Center/@30.0084,31.2506,17z" target="_blank" class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full font-semibold transition shadow-lg text-lg">
-        <span>&#128205;</span> Read All Reviews on Google Maps
-      </a>
+      <a href="https://www.google.com/maps/place/Mira+Dental+Center/@30.0084,31.2506,17z" target="_blank" class="inline-flex items-center gap-2 border border-ink/20 text-ink px-8 py-3.5 rounded-full font-semibold hover:border-ink transition">Read all reviews on Google Maps</a>
     </div>
   </div>
 </section>
 
-<section id="about" class="py-24 text-white relative overflow-hidden" style="background: #1a1a1a;">
-  <div class="absolute inset-0 opacity-5" style="background-image:url('data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
+<section id="about" class="py-24 bg-ink text-porcelain relative overflow-hidden">
   <div class="relative max-w-7xl mx-auto px-6">
-    <div class="grid md:grid-cols-2 gap-12 items-center">
+    <div class="grid md:grid-cols-2 gap-14 items-center">
       <div class="order-2 md:order-1">
-        <a href="https://www.google.com/maps/search/?api=1&query=Mira+Dental+Center+Maadi+Cairo" target="_blank">
-          <img src="https://essamsherif16-del.github.io/mira-dental-center/building.jpg" alt="Mira Dental Center Building" class="rounded-3xl shadow-2xl w-full object-contain hover:scale-105 transition duration-500" style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;">
+        <a href="https://essamsherif16-del.github.io/mira-dental-center/building.jpg" target="_blank">
+          <img src="https://essamsherif16-del.github.io/mira-dental-center/building.jpg" alt="Mira Dental Center Building" class="brighten-in rounded-2xl shadow-2xl w-full object-contain h-96 bg-porcelain/5">
         </a>
+        <p class="text-center text-porcelain/50 eyebrow mt-4">The Mira Dental Center building, Maadi</p>
       </div>
       <div class="order-1 md:order-2 space-y-6">
-        <span class="text-red-300 font-semibold text-sm uppercase tracking-widest">About Us</span>
-        <h2 class="text-4xl md:text-5xl font-bold" style="font-family:'Playfair Display',serif;">A Decade of Trusted Dental Care</h2>
-        <p class="text-gray-300 leading-relaxed text-lg">Mira Dental Center has been serving the Maadi community for over 10 years. Led by Dr. Ahmed El Khadem, our team combines clinical excellence with genuine compassion.</p>
-        <p class="text-gray-300 leading-relaxed">We believe that visiting the dentist should not be stressful. That is why we have built a clinic environment that is clean, modern, and welcoming — with advanced equipment and a team that puts your comfort first.</p>
-        <div class="grid grid-cols-2 gap-6 pt-4">
-          <div class="bg-white/10 backdrop-blur rounded-xl p-5 border border-white/20">
-            <p class="text-4xl font-bold text-red-300">10+</p>
-            <p class="text-gray-400 text-sm mt-1">Years of Experience</p>
+        <p class="eyebrow text-coral">About us</p>
+        <h2 class="font-display font-semibold text-4xl md:text-5xl leading-tight">A decade of trusted dental care</h2>
+        <p class="text-porcelain/75 leading-relaxed text-lg">Mira Dental Center has served the Maadi community for over 10 years. Led by Dr. Ahmed El Khadem, our team pairs clinical excellence with genuine compassion.</p>
+        <p class="text-porcelain/75 leading-relaxed">A dental visit shouldn't be stressful — so we built a clinic that's clean, modern, and welcoming, with advanced equipment and a team that puts your comfort first.</p>
+        <div class="grid grid-cols-2 gap-5 pt-4 stat-mono">
+          <div class="bg-porcelain/10 rounded-xl p-5 border border-porcelain/15">
+            <p class="text-3xl font-semibold text-coral">10+</p>
+            <p class="text-porcelain/60 text-xs mt-1 eyebrow">Years experience</p>
           </div>
-          <div class="bg-white/10 backdrop-blur rounded-xl p-5 border border-white/20">
-            <p class="text-4xl font-bold text-red-300">178+</p>
-            <p class="text-gray-400 text-sm mt-1">Happy Reviews</p>
+          <div class="bg-porcelain/10 rounded-xl p-5 border border-porcelain/15">
+            <p class="text-3xl font-semibold text-coral">179</p>
+            <p class="text-porcelain/60 text-xs mt-1 eyebrow">Reviews</p>
           </div>
-          <div class="bg-white/10 backdrop-blur rounded-xl p-5 border border-white/20">
-            <p class="text-4xl font-bold text-red-300">4.8</p>
-            <p class="text-gray-400 text-sm mt-1">Google Rating</p>
+          <div class="bg-porcelain/10 rounded-xl p-5 border border-porcelain/15">
+            <p class="text-3xl font-semibold text-coral">4.8</p>
+            <p class="text-porcelain/60 text-xs mt-1 eyebrow">Google rating</p>
           </div>
-          <div class="bg-white/10 backdrop-blur rounded-xl p-5 border border-white/20">
-            <p class="text-4xl font-bold text-red-300">6+</p>
-            <p class="text-gray-400 text-sm mt-1">Dental Services</p>
+          <div class="bg-porcelain/10 rounded-xl p-5 border border-porcelain/15">
+            <p class="text-3xl font-semibold text-coral">6+</p>
+            <p class="text-porcelain/60 text-xs mt-1 eyebrow">Services</p>
           </div>
         </div>
       </div>
@@ -389,92 +315,177 @@ h1,h2,h3,h4{font-family:'Playfair Display',serif;}
   </div>
 </section>
 
-<section id="booking" class="py-24 bg-white">
+<section id="booking" class="py-24 border-t border-ink/10">
   <div class="max-w-4xl mx-auto px-6">
-    <div class="text-center mb-16">
-      <span class="text-red-600 font-semibold text-sm uppercase tracking-widest">Book Online</span>
-      <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mt-3" style="font-family:'Playfair Display',serif;">Book Your Appointment</h2>
-      <div class="w-20 h-1 bg-red-600 mx-auto mt-6 rounded-full"></div>
-      <p class="text-gray-600 mt-6 max-w-xl mx-auto text-lg">Fill in your details below and we will receive your booking instantly via WhatsApp. Attach X-rays or photos if you have them.</p>
+    <div class="max-w-xl mb-16">
+      <p class="eyebrow text-sage mb-3">Book online</p>
+      <h2 class="font-display font-semibold text-4xl md:text-5xl text-ink">Book your appointment</h2>
+      <p class="text-ink/70 mt-5 text-lg leading-relaxed">Fill in your details below — your booking is sent instantly via WhatsApp. Attach X-rays or photos if you have them.</p>
     </div>
-    <div class="bg-gray-50 rounded-3xl p-8 md:p-12 border border-gray-100 shadow-xl">
-      <form id="bookingForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" enctype="multipart/form-data" onsubmit="handleBooking(event)">
+    <div class="bg-white rounded-2xl p-8 md:p-12 border border-ink/10 shadow-sm">
+      <form id="bookingForm" onsubmit="sendBooking(event)">
         <div class="grid md:grid-cols-2 gap-6 mb-6">
           <div>
-            <label class="block text-sm font-semibold text-gray-700 mb-2">Full Name *</label>
-            <input type="text" id="patientName" required placeholder="e.g. Ahmed Mohamed" class="w-full px-5 py-4 rounded-xl border border-gray-200 focus:border-red-500 focus:ring-2 focus:ring-red-100 outline-none transition bg-white text-gray-900">
+            <label class="block text-sm font-semibold text-ink/80 mb-2">Full Name *</label>
+            <input type="text" id="patientName" required placeholder="e.g. Ahmed Mohamed" class="w-full px-5 py-4 rounded-xl border border-ink/15 bg-porcelain text-ink">
           </div>
           <div>
-            <label class="block text-sm font-semibold text-gray-700 mb-2">Phone Number *</label>
-            <input type="tel" id="patientPhone" required placeholder="e.g. 0100 123 4567" class="w-full px-5 py-4 rounded-xl border border-gray-200 focus:border-red-500 focus:ring-2 focus:ring-red-100 outline-none transition bg-white text-gray-900">
-          </div>
-          <div>
-            <label class="block text-sm font-semibold text-gray-700 mb-2">Email Address</label>
-            <input type="email" id="patientEmail" placeholder="e.g. yourname@email.com" class="w-full px-5 py-4 rounded-xl border border-gray-200 focus:border-red-500 focus:ring-2 focus:ring-red-100 outline-none transition bg-white text-gray-900">
+            <label class="block text-sm font-semibold text-ink/80 mb-2">Phone Number *</label>
+            <input type="tel" id="patientPhone" required placeholder="e.g. 0100 123 4567" class="w-full px-5 py-4 rounded-xl border border-ink/15 bg-porcelain text-ink">
           </div>
         </div>
         <div class="grid md:grid-cols-2 gap-6 mb-6">
           <div>
-            <label class="block text-sm font-semibold text-gray-700 mb-2">Preferred Date *</label>
-            <input type="date" id="preferredDate" required class="w-full px-5 py-4 rounded-xl border border-gray-200 focus:border-red-500 focus:ring-2 focus:ring-red-100 outline-none transition bg-white text-gray-900">
+            <label class="block text-sm font-semibold text-ink/80 mb-2">Preferred Date *</label>
+            <input type="date" id="preferredDate" required class="w-full px-5 py-4 rounded-xl border border-ink/15 bg-porcelain text-ink">
           </div>
           <div>
-            <label class="block text-sm font-semibold text-gray-700 mb-2">Preferred Time *</label>
-            <select id="preferredTime" required class="w-full px-5 py-4 rounded-xl border border-gray-200 focus:border-red-500 focus:ring-2 focus:ring-red-100 outline-none transition bg-white text-gray-900">
+            <label class="block text-sm font-semibold text-ink/80 mb-2">Preferred Time *</label>
+            <select id="preferredTime" required class="w-full px-5 py-4 rounded-xl border border-ink/15 bg-porcelain text-ink">
               <option value="">Select a time...</option>
-              <option value="1:00 PM">1:00 PM</option>
-              <option value="1:30 PM">1:30 PM</option>
-              <option value="2:00 PM">2:00 PM</option>
-              <option value="2:30 PM">2:30 PM</option>
-              <option value="3:00 PM">3:00 PM</option>
-              <option value="3:30 PM">3:30 PM</option>
-              <option value="4:00 PM">4:00 PM</option>
-              <option value="4:30 PM">4:30 PM</option>
-              <option value="5:00 PM">5:00 PM</option>
-              <option value="5:30 PM">5:30 PM</option>
-              <option value="6:00 PM">6:00 PM</option>
-              <option value="6:30 PM">6:30 PM</option>
-              <option value="7:00 PM">7:00 PM</option>
-              <option value="7:30 PM">7:30 PM</option>
-              <option value="8:00 PM">8:00 PM</option>
-              <option value="8:30 PM">8:30 PM</option>
+              <option>1:00 PM</option><option>1:30 PM</option><option>2:00 PM</option><option>2:30 PM</option>
+              <option>3:00 PM</option><option>3:30 PM</option><option>4:00 PM</option><option>4:30 PM</option>
+              <option>5:00 PM</option><option>5:30 PM</option><option>6:00 PM</option><option>6:30 PM</option>
+              <option>7:00 PM</option><option>7:30 PM</option><option>8:00 PM</option><option>8:30 PM</option>
             </select>
           </div>
         </div>
         <div class="grid md:grid-cols-2 gap-6 mb-6">
           <div>
-            <label class="block text-sm font-semibold text-gray-700 mb-2">Service Needed</label>
-            <select id="serviceNeeded" class="w-full px-5 py-4 rounded-xl border border-gray-200 focus:border-red-500 focus:ring-2 focus:ring-red-100 outline-none transition bg-white text-gray-900">
+            <label class="block text-sm font-semibold text-ink/80 mb-2">Service Needed</label>
+            <select id="serviceNeeded" class="w-full px-5 py-4 rounded-xl border border-ink/15 bg-porcelain text-ink">
               <option value="">Select a service...</option>
-              <option value="General Checkup">General Checkup / Cleaning</option>
-              <option value="Orthodontics">Orthodontics (Braces / Aligners)</option>
-              <option value="Pediatric Dentistry">Pediatric Dentistry</option>
-              <option value="Cosmetic Dentistry">Cosmetic Dentistry (Whitening / Veneers)</option>
-              <option value="Root Canal">Root Canal Treatment</option>
-              <option value="Dental Implants">Dental Implants</option>
-              <option value="Other">Other / Not Sure</option>
+              <option>General Checkup / Cleaning</option>
+              <option>Orthodontics (Braces / Aligners)</option>
+              <option>Pediatric Dentistry</option>
+              <option>Cosmetic Dentistry (Whitening / Veneers)</option>
+              <option>Root Canal Treatment</option>
+              <option>Dental Implants</option>
+              <option>Other / Not Sure</option>
             </select>
           </div>
           <div>
-            <label class="block text-sm font-semibold text-gray-700 mb-2">Attach Files (X-ray, Photos)</label>
-            <input type="file" id="patientFiles" multiple accept="image/*,.pdf" class="w-full px-5 py-3 rounded-xl border border-gray-200 focus:border-red-500 focus:ring-2 focus:ring-red-100 outline-none transition bg-white text-gray-900 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-red-50 file:text-red-700 hover:file:bg-red-100">
-            <p class="text-xs text-gray-400 mt-1">Upload X-rays, photos of your teeth, or any relevant documents</p>
+            <label class="block text-sm font-semibold text-ink/80 mb-2">Attach Files (X-ray, Photos)</label>
+            <input type="file" id="patientFiles" multiple accept="image/*,.pdf" class="w-full px-5 py-3 rounded-xl border border-ink/15 bg-porcelain text-ink text-sm file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-xs file:font-semibold file:bg-mist file:text-sage">
+            <p class="text-xs text-ink/40 mt-1">Files are described in your WhatsApp message — please attach them directly in the chat.</p>
           </div>
         </div>
         <div class="mb-8">
-          <label class="block text-sm font-semibold text-gray-700 mb-2">What are you suffering from? *</label>
-          <textarea id="patientIssue" required rows="4" placeholder="Describe your symptoms or dental concern... e.g. Toothache in upper left molar, sensitivity to cold, need wisdom tooth extraction, etc." class="w-full px-5 py-4 rounded-xl border border-gray-200 focus:border-red-500 focus:ring-2 focus:ring-red-100 outline-none transition bg-white text-gray-900 resize-none"></textarea>
+          <label class="block text-sm font-semibold text-ink/80 mb-2">What are you suffering from? *</label>
+          <textarea id="patientIssue" required rows="4" placeholder="Describe your symptoms or dental concern..." class="w-full px-5 py-4 rounded-xl border border-ink/15 bg-porcelain text-ink resize-none"></textarea>
         </div>
-        <button type="submit" class="w-full btn-primary text-white py-4 rounded-xl font-bold text-lg transition shadow-xl flex items-center justify-center gap-3">
-          <span>&#128172;</span> Send Booking (Email + WhatsApp)
-        </button>
-        <p class="text-center text-sm text-gray-400 mt-4">📧 Details + X-rays sent via email &nbsp;|&nbsp; 💬 Summary sent via WhatsApp</p>
+        <button type="submit" class="w-full bg-coral text-porcelain py-4 rounded-xl font-bold text-lg hover:bg-ink transition">Send booking via WhatsApp</button>
       </form>
     </div>
   </div>
 </section>
 
+<section id="contact" class="py-24 bg-mist/40 border-t border-ink/10">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="max-w-xl mb-16">
+      <p class="eyebrow text-sage mb-3">Get in touch</p>
+      <h2 class="font-display font-semibold text-4xl md:text-5xl text-ink">Visit us today</h2>
+    </div>
+    <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
+      <a href="https://www.google.com/maps/search/?api=1&query=Mira+Dental+Center+Maadi+Cairo" target="_blank" class="card-lift bg-white rounded-2xl p-7 border border-ink/10 block">
+        <p class="eyebrow text-sage mb-3">Address</p>
+        <p class="text-ink/70 text-sm">Maadi as Sarayat Al Gharbeyah<br>Maadi, Cairo Governorate 4212102</p>
+      </a>
+      <a href="tel:01111197399" class="card-lift bg-white rounded-2xl p-7 border border-ink/10 block">
+        <p class="eyebrow text-sage mb-3">Phone</p>
+        <p class="text-ink font-semibold text-lg">0111 119 7399</p>
+      </a>
+      <a href="https://m.me/MiraDentalCenter" target="_blank" class="card-lift bg-white rounded-2xl p-7 border border-ink/10 block">
+        <p class="eyebrow text-sage mb-3">Messenger</p>
+        <p class="text-ink/70 text-sm">Mira Dental Center</p>
+      </a>
+      <a href="https://ig.me/m/mira_dental_center_" target="_blank" class="card-lift bg-white rounded-2xl p-7 border border-ink/10 block">
+        <p class="eyebrow text-sage mb-3">Instagram</p>
+        <p class="text-ink/70 text-sm">@mira_dental_center_</p>
+      </a>
+      <div class="card-lift bg-white rounded-2xl p-7 border border-ink/10">
+        <p class="eyebrow text-sage mb-3">Hours</p>
+        <p class="text-ink/70 text-sm">1 PM – 9 PM<br>Closed Fridays</p>
+      </div>
+    </div>
+    <div class="mt-14 bg-ink rounded-3xl p-10 md:p-16 text-center text-porcelain">
+      <h3 class="font-display font-semibold text-3xl md:text-4xl mb-4">Ready to book your appointment?</h3>
+      <p class="text-porcelain/60 mb-9 max-w-xl mx-auto text-lg">A healthier, brighter smile is one message away.</p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="https://wa.me/201111197399?text=Hello%20Mira%20Dental%20Center%2C%20I%20would%20like%20to%20book%20an%20appointment." target="_blank" class="bg-coral text-porcelain px-9 py-4 rounded-full font-semibold hover:bg-porcelain hover:text-ink transition">Book on WhatsApp</a>
+        <a href="tel:01111197399" class="border border-porcelain/30 text-porcelain px-9 py-4 rounded-full font-semibold hover:border-porcelain transition">Call 0111 119 7399</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="payment" class="py-24 border-t border-ink/10">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="max-w-xl mb-16">
+      <p class="eyebrow text-sage mb-3">Payment options</p>
+      <h2 class="font-display font-semibold text-4xl md:text-5xl text-ink">Flexible ways to pay</h2>
+      <p class="text-ink/70 mt-5 text-lg leading-relaxed">Whatever's easiest for you — including installment plans for major procedures.</p>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+      <div class="card-lift bg-white rounded-2xl p-7 text-center border border-ink/10">
+        <div class="w-16 h-16 mx-auto mb-4 bg-mist rounded-xl flex items-center justify-center">
+          <span class="stat-mono text-sm font-semibold text-sage">EGP</span>
+        </div>
+        <h3 class="font-display text-ink">Cash</h3>
+        <p class="eyebrow text-ink/40 mt-1">Egyptian Pound</p>
+      </div>
+      <div class="card-lift bg-white rounded-2xl p-7 text-center border border-ink/10">
+        <div class="flex items-center justify-center gap-2 mb-4 h-16">
+          <img src="https://essamsherif16-del.github.io/mira-dental-center/visa.png" alt="Visa" class="h-9 object-contain">
+          <img src="https://essamsherif16-del.github.io/mira-dental-center/mastercard.png" alt="Mastercard" class="h-9 object-contain">
+        </div>
+        <h3 class="font-display text-ink">Card</h3>
+        <p class="eyebrow text-ink/40 mt-1">Visa & Mastercard</p>
+      </div>
+      <div class="card-lift bg-white rounded-2xl p-7 text-center border border-ink/10">
+        <img src="https://essamsherif16-del.github.io/mira-dental-center/instapay.png" alt="InstaPay" class="h-16 mx-auto mb-4 object-contain">
+        <h3 class="font-display text-ink">InstaPay</h3>
+        <p class="eyebrow text-ink/40 mt-1">Mobile wallet</p>
+      </div>
+      <div class="card-lift bg-white rounded-2xl p-7 text-center border border-ink/10">
+        <div class="w-16 h-16 mx-auto mb-4 bg-mist rounded-xl flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#4F6F5D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line></svg>
+        </div>
+        <h3 class="font-display text-ink">Bank Transfer</h3>
+        <p class="eyebrow text-ink/40 mt-1">All major banks</p>
+      </div>
+    </div>
+    <p class="text-center text-ink/50 text-sm mt-10">Ask us about installment plans for major procedures.</p>
+  </div>
+</section>
+
+<footer class="bg-ink text-porcelain/70 py-14 border-t border-porcelain/10">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-3">
+        <img src="https://essamsherif16-del.github.io/mira-dental-center/logo.jpg" alt="Mira Dental Center Logo" class="w-11 h-11 rounded-full object-cover">
+        <div>
+          <p class="font-display text-porcelain">Mira Dental Center</p>
+          <p class="eyebrow text-porcelain/40">Maadi, Cairo</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-6 text-sm">
+        <a href="https://m.me/MiraDentalCenter" target="_blank" class="hover:text-porcelain transition">Messenger</a>
+        <a href="https://ig.me/m/mira_dental_center_" target="_blank" class="hover:text-porcelain transition">Instagram</a>
+        <a href="https://www.facebook.com/MiraDentalCenter" target="_blank" class="hover:text-porcelain transition">Facebook</a>
+      </div>
+      <p class="eyebrow text-porcelain/40">&copy; 2026 Mira Dental Center</p>
+    </div>
+    <p id="visitCounter" class="eyebrow text-porcelain/30 text-center mt-8"></p>
+  </div>
+</footer>
+
+<a href="https://wa.me/201111197399?text=Hello%20Mira%20Dental%20Center%2C%20I%20would%20like%20to%20book%20an%20appointment." target="_blank" class="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-400 text-white w-16 h-16 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition duration-300 text-3xl">
+  &#128172;
+</a>
+
 <script>
+// Replace with your deployed backend URL (see README in the backend project)
 const API_BASE_URL = "https://REPLACE-WITH-YOUR-RENDER-URL.onrender.com";
 
 async function sendBooking(e) {
@@ -541,212 +552,6 @@ function closeLightbox() {
   document.getElementById('lightbox').classList.remove('active');
 }
 
-function closeLightbox() {
-  document.getElementById('lightbox').classList.remove('active');
-}
-</script>
-
-<section id="contact" class="py-24 section-alt">
-  <div class="max-w-7xl mx-auto px-6">
-    <div class="text-center mb-16">
-      <span class="text-red-600 font-semibold text-sm uppercase tracking-widest">Get In Touch</span>
-      <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mt-3" style="font-family:'Playfair Display',serif;">Visit Us Today</h2>
-      <div class="w-20 h-1 bg-red-600 mx-auto mt-6 rounded-full"></div>
-      <p class="text-gray-600 mt-6 text-lg">Ready for your appointment? We are here to help.</p>
-    </div>
-    <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-8">
-      <a href="https://www.google.com/maps/search/?api=1&query=Mira+Dental+Center+Maadi+Cairo" target="_blank" class="bg-white rounded-2xl p-8 text-center border border-gray-100 card-hover block">
-        <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-5 text-2xl">&#128205;</div>
-        <h3 class="font-bold text-gray-900 mb-2 text-lg">Address</h3>
-        <p class="text-gray-600">Maadi as Sarayat Al Gharbeyah<br>Maadi, Cairo Governorate 4212102</p>
-        <p class="text-sm text-blue-600 font-medium mt-3">Open in Google Maps &rarr;</p>
-      </a>
-      <a href="tel:01111197399" class="bg-white rounded-2xl p-8 text-center border border-gray-100 card-hover block">
-        <div class="w-16 h-16 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-5 text-2xl">&#128222;</div>
-        <h3 class="font-bold text-gray-900 mb-2 text-lg">Phone</h3>
-        <p class="text-red-600 font-semibold text-xl">0111 119 7399</p>
-        <p class="text-sm text-red-600 font-medium mt-3">Tap to call &rarr;</p>
-      </a>
-      <a href="https://m.me/MiraDentalCenter" target="_blank" class="bg-white rounded-2xl p-8 text-center border border-gray-100 card-hover block">
-        <div class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-5 text-2xl bg-blue-600 text-white">
-          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.03 2 11c0 2.76 1.36 5.23 3.5 6.86V22l3.09-1.68c.82.23 1.69.36 2.59.36 5.52 0 10-4.03 10-9s-4.48-9-10-9zm1.09 12.09l-2.59-2.76-5.06 2.76 5.57-5.93 2.59 2.76 5.06-2.76-5.57 5.93z"/></svg>
-        </div>
-        <h3 class="font-bold text-gray-900 mb-2 text-lg">Messenger</h3>
-        <p class="text-gray-600">Mira Dental Center</p>
-        <p class="text-sm text-blue-600 font-medium mt-3">Chat on Messenger &rarr;</p>
-      </a>
-      <a href="https://ig.me/m/mira_dental_center_" target="_blank" class="bg-white rounded-2xl p-8 text-center border border-gray-100 card-hover block">
-        <div class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-5 text-2xl bg-gradient-to-tr from-purple-500 via-pink-500 to-orange-500 text-white">
-          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-        </div>
-        <h3 class="font-bold text-gray-900 mb-2 text-lg">Instagram</h3>
-        <p class="text-gray-600">@mira_dental_center_</p>
-        <p class="text-sm font-medium mt-3 bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 bg-clip-text text-transparent">DM us on Instagram &rarr;</p>
-      </a>
-      <div class="bg-white rounded-2xl p-8 text-center border border-gray-100 card-hover">
-        <div class="w-16 h-16 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-5 text-2xl">&#128336;</div>
-        <h3 class="font-bold text-gray-900 mb-2 text-lg">Working Hours</h3>
-        <p class="text-gray-600 text-lg">Open: 1 PM – 9 PM</p>
-        <p class="text-sm text-gray-400 mt-2">Closed on Fridays</p>
-      </div>
-    </div>
-    <div class="mt-16 bg-gray-900 rounded-3xl p-8 md:p-16 text-center text-white relative overflow-hidden">
-      <div class="absolute inset-0 opacity-5" style="background-image:url('data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
-      <div class="relative">
-        <h3 class="text-3xl md:text-4xl font-bold mb-4" style="font-family:'Playfair Display',serif;">Ready to Book Your Appointment?</h3>
-        <p class="text-gray-400 mb-10 max-w-xl mx-auto text-lg">Join hundreds of satisfied patients. A healthier, brighter smile is just one message away.</p>
-        <div class="flex flex-wrap justify-center gap-4">
-          <a href="https://wa.me/201111197399?text=Hello%20Mira%20Dental%20Center%2C%20I%20would%20like%20to%20book%20an%20appointment.%20Please%20let%20me%20know%20your%20available%20times." target="_blank" class="bg-green-500 hover:bg-green-400 text-white px-10 py-4 rounded-full font-semibold transition shadow-lg flex items-center gap-2 text-lg">
-            <span>&#128172;</span> Book on WhatsApp
-          </a>
-          <a href="https://m.me/MiraDentalCenter" target="_blank" class="bg-blue-600 hover:bg-blue-500 text-white px-10 py-4 rounded-full font-semibold transition shadow-lg flex items-center gap-2 text-lg">
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.03 2 11c0 2.76 1.36 5.23 3.5 6.86V22l3.09-1.68c.82.23 1.69.36 2.59.36 5.52 0 10-4.03 10-9s-4.48-9-10-9zm1.09 12.09l-2.59-2.76-5.06 2.76 5.57-5.93 2.59 2.76 5.06-2.76-5.57 5.93z"/></svg>
-            <span>Message on Messenger</span>
-          </a>
-          <a href="https://ig.me/m/mira_dental_center_" target="_blank" class="bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 hover:from-purple-400 hover:via-pink-400 hover:to-orange-400 text-white px-10 py-4 rounded-full font-semibold transition shadow-lg flex items-center gap-2 text-lg">
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-            <span>Message on Instagram</span>
-          </a>
-          <a href="tel:01111197399" class="bg-white/10 hover:bg-white/20 text-white px-10 py-4 rounded-full font-semibold transition backdrop-blur flex items-center gap-2 text-lg">
-            <span>&#128222;</span> Call 0111 119 7399
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<section id="payment" class="py-16 bg-gray-50 border-t border-gray-200">
-  <div class="max-w-7xl mx-auto px-6">
-    <div class="text-center mb-10">
-      <span class="text-red-600 font-semibold text-sm uppercase tracking-widest">Payment Options</span>
-      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-3" style="font-family:'Playfair Display',serif;">Accepted Payment Methods</h2>
-      <div class="w-20 h-1 bg-red-600 mx-auto mt-4 rounded-full"></div>
-      <p class="text-gray-600 mt-4">Flexible payment options for your convenience</p>
-    </div>
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
-      <div class="bg-white rounded-2xl p-6 text-center border border-gray-100 shadow-sm card-hover">
-        <div class="w-20 h-20 mx-auto mb-3 bg-green-50 rounded-xl flex items-center justify-center">
-          <span class="text-3xl font-bold text-green-600">EGP</span>
-        </div>
-        <h3 class="font-bold text-gray-900">Cash</h3>
-        <p class="text-sm text-gray-500 mt-1">Egyptian Pound</p>
-      </div>
-      <div class="bg-white rounded-2xl p-6 text-center border border-gray-100 shadow-sm card-hover">
-        <div class="flex items-center justify-center gap-2 mb-3">
-          <img src="https://essamsherif16-del.github.io/mira-dental-center/visa.png" alt="Visa" class="h-10 object-contain">
-          <img src="https://essamsherif16-del.github.io/mira-dental-center/mastercard.png" alt="Mastercard" class="h-10 object-contain">
-        </div>
-        <h3 class="font-bold text-gray-900">Credit / Debit Card</h3>
-        <p class="text-sm text-gray-500 mt-1">Visa & Mastercard</p>
-      </div>
-      <div class="bg-white rounded-2xl p-6 text-center border border-gray-100 shadow-sm card-hover">
-        <img src="https://essamsherif16-del.github.io/mira-dental-center/instapay.png" alt="InstaPay" class="h-12 mx-auto mb-3 object-contain">
-        <h3 class="font-bold text-gray-900">InstaPay</h3>
-        <p class="text-sm text-gray-500 mt-1">Mobile Wallet</p>
-      </div>
-      <div class="bg-white rounded-2xl p-6 text-center border border-gray-100 shadow-sm card-hover">
-        <div class="w-20 h-20 mx-auto mb-3 bg-blue-50 rounded-xl flex items-center justify-center">
-          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line></svg>
-        </div>
-        <h3 class="font-bold text-gray-900">Bank Transfer</h3>
-        <p class="text-sm text-gray-500 mt-1">All Major Banks</p>
-      </div>
-    </div>
-    <div class="mt-8 text-center">
-      <p class="text-gray-500 text-sm">💡 We also offer <span class="font-semibold text-gray-700">installment plans</span> for major procedures. Ask us about flexible payment options.</p>
-    </div>
-  </div>
-</section>
-<footer class="bg-gray-900 text-white py-16">
-  <div class="max-w-7xl mx-auto px-6">
-    <div class="flex flex-col md:flex-row items-center justify-between gap-8">
-      <div class="flex items-center gap-4">
-        <img src="https://essamsherif16-del.github.io/mira-dental-center/logo.jpg" alt="Mira Dental Center Logo" class="w-14 h-14 rounded-xl object-cover">
-        <div>
-          <h4 class="font-bold text-xl" style="font-family:'Playfair Display',serif;">Mira Dental Center</h4>
-          <p class="text-sm text-gray-400">Maadi, Cairo</p>
-        </div>
-      </div>
-      <div class="flex items-center gap-8 text-sm text-gray-400">
-        <a href="https://m.me/MiraDentalCenter" target="_blank" class="hover:text-white transition">Messenger</a>
-        <a href="https://ig.me/m/mira_dental_center_" target="_blank" class="hover:text-white transition">Instagram</a>
-        <a href="https://www.facebook.com/MiraDentalCenter" target="_blank" class="hover:text-white transition">Facebook</a>
-        <a href="https://yellowpages.com.eg" target="_blank" class="hover:text-white transition">Yellow Pages</a>
-      </div>
-      <p class="text-sm text-gray-500">&copy; 2026 Mira Dental Center. All rights reserved.</p>
-    </div>
-  </div>
-</footer>
-
-<a href="https://wa.me/201111197399?text=Hello%20Mira%20Dental%20Center%2C%20I%20would%20like%20to%20book%20an%20appointment." target="_blank" class="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-400 text-white w-16 h-16 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition duration-300 text-3xl">
-  &#128172;
-</a>
-<script>
-const API_BASE_URL = "https://REPLACE-WITH-YOUR-RENDER-URL.onrender.com";
-
-async function sendBooking(e) {
-  e.preventDefault();
-  var name = document.getElementById("patientName").value.trim();
-  var phone = document.getElementById("patientPhone").value.trim();
-  var date = document.getElementById("preferredDate").value;
-  var time = document.getElementById("preferredTime").value;
-  var service = document.getElementById("serviceNeeded").value;
-  var issue = document.getElementById("patientIssue").value.trim();
-  var files = document.getElementById("patientFiles").files;
-  var filesNote = files.length > 0 ? files.length + " file(s) selected" : "";
-
-  var submitBtn = e.target.querySelector('button[type="submit"]');
-  var originalLabel = submitBtn.textContent;
-  submitBtn.disabled = true;
-  submitBtn.textContent = "Sending...";
-
-  try {
-    await fetch(API_BASE_URL + "/api/bookings", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        name: name,
-        phone: phone,
-        preferred_date: date,
-        preferred_time: time,
-        service: service,
-        issue: issue,
-        files_note: filesNote
-      })
-    });
-  } catch (err) {
-    console.warn("Backend save failed, continuing with WhatsApp:", err);
-  }
-
-  var msg = "Hello Mira Dental Center, I would like to book an appointment.\n\n";
-  msg += "*Patient Details:*\n";
-  msg += "Name: " + name + "\n";
-  msg += "Phone: " + phone + "\n";
-  if (date) msg += "Preferred Date: " + date + "\n";
-  if (time) msg += "Preferred Time: " + time + "\n";
-  if (service) msg += "Service: " + service + "\n";
-  msg += "\n*Issue / Symptoms:*\n" + issue;
-  if (filesNote) msg += "\n\n*Note:* " + filesNote;
-  msg += "\n\nPlease confirm my appointment. Thank you!";
-
-  var url = "https://wa.me/201111197399?text=" + encodeURIComponent(msg);
-  window.open(url, "_blank");
-
-  submitBtn.disabled = false;
-  submitBtn.textContent = originalLabel;
-}
-
-function openLightbox(el) {
-  var img = el.querySelector('img');
-  document.getElementById('lightboxImg').src = img.src;
-  document.getElementById('lightbox').classList.add('active');
-}
-function closeLightbox() {
-  document.getElementById('lightbox').classList.remove('active');
-}
-
 var brightenTargets = document.querySelectorAll('.brighten-in');
 if ('IntersectionObserver' in window) {
   var io = new IntersectionObserver(function(entries){
@@ -762,22 +567,24 @@ if ('IntersectionObserver' in window) {
   brightenTargets.forEach(function(el){ el.classList.add('is-visible'); });
 }
 
+// Visit counter: record this page load once per browser session, then show the total
 (function trackVisit(){
   var counterEl = document.getElementById('visitCounter');
-  var alreadyCounted = sessionStorage.getItem('mira_visit_logged');
-  var endpoint = API_BASE_URL + (alreadyCounted ? "/api/visit-count" : "/api/visit");
-  var options = alreadyCounted ? {} : { method: "POST" };
+  var alreadyCountedThisSession = sessionStorage.getItem('mira_visit_logged');
+  var endpoint = API_BASE_URL + (alreadyCountedThisSession ? "/api/visit-count" : "/api/visit");
+  var options = alreadyCountedThisSession ? {} : { method: "POST" };
 
   fetch(endpoint, options)
     .then(function(r){ return r.json(); })
     .then(function(data){
-      if (!alreadyCounted) sessionStorage.setItem('mira_visit_logged', '1');
+      if (!alreadyCountedThisSession) sessionStorage.setItem('mira_visit_logged', '1');
       if (counterEl && typeof data.total === 'number') {
         counterEl.textContent = data.total.toLocaleString() + " visits since launch";
       }
     })
-    .catch(function(){});
+    .catch(function(){ /* backend asleep or unreachable — fail silently, no counter shown */ });
 })();
 </script>
+
 </body>
 </html>
